@@ -20,10 +20,10 @@ SLEEP_SECONDS = 0.6
 
 DB_CONFIG = {
     "host": "localhost",
-    "database": "nvd_cve",
-    "user": "postgres",
+    "database": "db",
+    "user": "user",
     "password": "pw",
-    "port": 5432,
+    "port": "port",
 }
 
 HEADERS = {
@@ -427,3 +427,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
