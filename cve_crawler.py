@@ -15,10 +15,10 @@ url = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
 conn = psycopg2.connect(
     host="localhost",
-    database="cve",
-    user="postgres",
+    database="db",
+    user="user",
     password="pw",
-    port=5432
+    port=port
 )
 
 cur = conn.cursor()
@@ -96,3 +96,4 @@ print("Finished collecting CVE data")
 cur.close()
 
 conn.close()
+
