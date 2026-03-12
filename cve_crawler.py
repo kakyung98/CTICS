@@ -2,7 +2,7 @@ import os
 import requests
 import psycopg2
 
-# NVD API KEY (PowerShell에서 설정한 환경변수 사용)
+
 API_KEY = os.getenv("NVD_API_KEY")
 
 headers = {
@@ -12,18 +12,18 @@ headers = {
 
 url = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
-# PostgreSQL 연결
+
 conn = psycopg2.connect(
     host="localhost",
     database="cve",
     user="postgres",
-    password="0000",
+    password="pw",
     port=5432
 )
 
 cur = conn.cursor()
 
-# 테이블 생성
+
 cur.execute("""
 CREATE TABLE IF NOT EXISTS cves(
     cve_id TEXT PRIMARY KEY,
@@ -94,4 +94,5 @@ while True:
 print("Finished collecting CVE data")
 
 cur.close()
+
 conn.close()
